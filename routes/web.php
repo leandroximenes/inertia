@@ -14,9 +14,12 @@ use Inertia\Inertia;
 |
 */
 
-$a = 10;
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'name' => 'Leandro Ximenes'
-    ]);
+    return Inertia::render('Home');
+});
+Route::get('/users', function () {
+    return Inertia::render('Users');
+});
+Route::get('/settings', function () {
+    return Inertia::render('Settings');
 });
