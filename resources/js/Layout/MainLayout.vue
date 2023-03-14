@@ -23,9 +23,3 @@
         <footer class="text-center">Footer</footer>
     </main>
 </template>
-
-<style>
-    .link{
-
-    }
-</style>
