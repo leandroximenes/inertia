@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .menu-link {
+      @apply bg-gray-400 py-2 px-4 m-4 rounded hover:bg-gray-500
+    }
+  }
