@@ -5,7 +5,7 @@ import Layout from './Layout/MainLayout.vue'
 createInertiaApp({
     progress: {
         // The color of the progress bar.
-        color: 'red',
+        color: 'blue',
         // Whether the NProgress spinner will be shown.
         showSpinner: true,
     },
