@@ -1,15 +1,29 @@
 <script setup>
+import { ref, watch } from 'vue';
 import Pagination from '../Components/Pagination.vue'
+import { router } from '@inertiajs/vue3'
+
 const props = defineProps({
-  users: Object
+  users: Object,
+  filters: Object
 })
+
+let search = ref(props.filters.search);
+
+watch(search, value => {
+  router.get('/users', { search: value }, {
+    preserveState: true,
+    preserveScroll: true,
+    replace: true
+  })
+});
 </script>
 
 <template>
-  <h1 class="title">Users</h1>
-  <ul>
-    <!-- <li v-for="user in users" :key="user.email">{{ user.name }}</li> -->
-  </ul>
+  <div class="flex justify-between py-4">
+    <h1 class="title my-0">Users</h1>
+    <input type="text" v-model="search" placeholder="Search..." class="border rounded-md ">
+  </div>
 
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -46,5 +60,5 @@ const props = defineProps({
     </table>
   </div>
 
-  <Pagination :users="users"/>
+  <Pagination :users="users" />
 </template>

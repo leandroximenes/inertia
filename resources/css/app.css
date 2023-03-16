@@ -4,7 +4,7 @@
 
 @layer components {
   .title {
-    @apply text-2xl font-bold mb-2
+    @apply text-2xl font-bold my-3
   }
 
   .menu-link {
