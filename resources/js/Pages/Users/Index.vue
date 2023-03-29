@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch } from 'vue';
-import Pagination from '../Components/Pagination.vue'
+import Pagination from '../../Components/Pagination.vue'
 import { router } from '@inertiajs/vue3'
 
 const props = defineProps({
@@ -21,8 +21,13 @@ watch(search, value => {
 
 <template>
   <div class="flex justify-between py-4">
-    <h1 class="title my-0">Users</h1>
-    <input type="text" v-model="search" placeholder="Search..." class="border rounded-md ">
+    <h1 class="title my-0">Usuários</h1>
+  </div>
+  <div class="flex justify-between py-4">
+    <input type="text" v-model="search" placeholder="Search..." class="border rounded-md px-2">
+    <Link href="/users/create" class="my-primary-button">
+      Adicionar
+    </Link>
   </div>
 
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -53,7 +58,7 @@ watch(search, value => {
             {{ user.email }}
           </td>
           <td class="px-6 py-4 text-right">
-            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+            <a href="#" class="font-medium text-primary-600 dark:text-primary-500 hover:underline">Edit</a>
           </td>
         </tr>
       </tbody>
