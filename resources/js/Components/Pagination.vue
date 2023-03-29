@@ -21,7 +21,7 @@ const props = defineProps({
     </div>
 </template>
 
-<style>
+<style scoped>
 span {
     cursor: not-allowed;
 }
