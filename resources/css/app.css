@@ -19,4 +19,24 @@
     @apply px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700
   }
 
+  .my-form{
+    @apply p-3 shadow-md sm:rounded-lg bg-white
+  }
+
+  .my-form label{
+    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white
+  }
+
+  .my-form input{
+    @apply shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+  }
+
+  .my-form button[type="submit"], .my-primary-button{
+    @apply bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 mx-1 rounded
+  }
+
+  .my-form button, .my-neutral-button{
+    @apply bg-neutral-500 hover:bg-neutral-700 text-white font-bold py-2 px-4 mx-1 rounded
+  }
+
 }
