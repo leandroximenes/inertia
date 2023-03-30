@@ -1,20 +1,24 @@
 <script setup>
+import ComponentModal from '../Components/Modal.vue'
 import { usePage } from '@inertiajs/vue3'
 import { computed } from 'vue'
 const user = computed(() => usePage().props.user)
+let flashMessage = computed(() => usePage().props.flash)
 </script>
 
 <template>
     <main class="min-h-screen flex flex-col h-screen">
-        <header class="p-5 text-center bg-gray-200">
-            <span class="float-left">Hello, {{ user.name }}</span>
+        <ComponentModal :message="flashMessage"></ComponentModal>
+        <header class="p-5 bg-gray-200">
             <span class="text-lg font-bold">{{ $page.props.appName }}</span>
+            <span class="float-right">Hello, {{ user.name }}</span>
         </header>
         <div class="flex-1 flex flex-row">
             <nav class="order-first sm:w-36  overflow-y-auto bg-gray-300">
                 <ul class="pt-1">
                     <li>
-                        <Link class="menu-link" href="/" :class="{ 'menu-link-active': $page.component.startsWith('Home') }">
+                        <Link class="menu-link" href="/"
+                            :class="{ 'menu-link-active': $page.component.startsWith('Home') }">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                             class="w-4 h-5 mx-1 pt-1">
                             <path fill-rule="evenodd"
@@ -37,21 +41,22 @@ const user = computed(() => usePage().props.user)
                     </li>
                     <li>
                         <Link class="menu-link" href="/settings"
-                            :class="{ 'menu-link-active': $page.component.startsWith('Settings')}">
+                            :class="{ 'menu-link-active': $page.component.startsWith('Settings') }">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                        class="w-4 h-5 mx-1 pt-1">
-                        <path fill-rule="evenodd"
-                            d="M8.34 1.804A1 1 0 019.32 1h1.36a1 1 0 01.98.804l.295 1.473c.497.144.971.342 1.416.587l1.25-.834a1 1 0 011.262.125l.962.962a1 1 0 01.125 1.262l-.834 1.25c.245.445.443.919.587 1.416l1.473.294a1 1 0 01.804.98v1.361a1 1 0 01-.804.98l-1.473.295a6.95 6.95 0 01-.587 1.416l.834 1.25a1 1 0 01-.125 1.262l-.962.962a1 1 0 01-1.262.125l-1.25-.834a6.953 6.953 0 01-1.416.587l-.294 1.473a1 1 0 01-.98.804H9.32a1 1 0 01-.98-.804l-.295-1.473a6.957 6.957 0 01-1.416-.587l-1.25.834a1 1 0 01-1.262-.125l-.962-.962a1 1 0 01-.125-1.262l.834-1.25a6.957 6.957 0 01-.587-1.416l-1.473-.294A1 1 0 011 10.68V9.32a1 1 0 01.804-.98l1.473-.295c.144-.497.342-.971.587-1.416l-.834-1.25a1 1 0 01.125-1.262l.962-.962A1 1 0 015.38 3.03l1.25.834a6.957 6.957 0 011.416-.587l.294-1.473zM13 10a3 3 0 11-6 0 3 3 0 016 0z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    Configurações
-                    </Link>
-                </li>
-            </ul>
-        </nav>
-        <main class="flex-1 overflow-y-auto p-2 bg-gray-100">
-            <slot></slot>
-        </main>
-    </div>
-    <footer class="text-center bg-gray-800 text-white">© All rights reserved</footer>
-</main></template>
+                            class="w-4 h-5 mx-1 pt-1">
+                            <path fill-rule="evenodd"
+                                d="M8.34 1.804A1 1 0 019.32 1h1.36a1 1 0 01.98.804l.295 1.473c.497.144.971.342 1.416.587l1.25-.834a1 1 0 011.262.125l.962.962a1 1 0 01.125 1.262l-.834 1.25c.245.445.443.919.587 1.416l1.473.294a1 1 0 01.804.98v1.361a1 1 0 01-.804.98l-1.473.295a6.95 6.95 0 01-.587 1.416l.834 1.25a1 1 0 01-.125 1.262l-.962.962a1 1 0 01-1.262.125l-1.25-.834a6.953 6.953 0 01-1.416.587l-.294 1.473a1 1 0 01-.98.804H9.32a1 1 0 01-.98-.804l-.295-1.473a6.957 6.957 0 01-1.416-.587l-1.25.834a1 1 0 01-1.262-.125l-.962-.962a1 1 0 01-.125-1.262l.834-1.25a6.957 6.957 0 01-.587-1.416l-1.473-.294A1 1 0 011 10.68V9.32a1 1 0 01.804-.98l1.473-.295c.144-.497.342-.971.587-1.416l-.834-1.25a1 1 0 01.125-1.262l.962-.962A1 1 0 015.38 3.03l1.25.834a6.957 6.957 0 011.416-.587l.294-1.473zM13 10a3 3 0 11-6 0 3 3 0 016 0z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Configurações
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
+            <main class="flex-1 overflow-y-auto p-2 bg-gray-100">
+                <slot></slot>
+            </main>
+        </div>
+        <footer class="text-center bg-gray-800 text-white">© All rights reserved</footer>
+    </main>
+</template>
