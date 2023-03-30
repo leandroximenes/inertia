@@ -44,7 +44,11 @@ Route::post('/users', function () {
 
     User::create($attributes);
     
-    return redirect('/users');
+    return redirect('/users')->with('message', [
+        'color' => 'green',
+        'title' => 'Successo!',
+        'message'=> 'Usuário criado com sucesso',
+    ]);
 });
 
 Route::get('/users/create', function () {

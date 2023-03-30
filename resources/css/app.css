@@ -31,16 +31,25 @@
     @apply shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
   }
 
-  .my-form button[type="submit"], .my-primary-button{
+  .my-form button[type="submit"], 
+  .my-primary-button{
     @apply bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 mx-1 rounded
   }
 
-  .my-form button, .my-neutral-button{
+  .my-form button, 
+  .my-neutral-button{
     @apply bg-neutral-500 hover:bg-neutral-700 text-white font-bold py-2 px-4 mx-1 rounded
+  }
+
+  .my-form button[type="submit"]:disabled, 
+  .my-primary-button:disabled,
+  .my-form button:disabled, 
+  .my-neutral-button:disabled
+  {
+    @apply opacity-50 cursor-not-allowed;
   }
 
   .my-form .error{
     @apply text-sm text-red-500 ml-2
   }
-
 }

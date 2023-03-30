@@ -1,45 +1,37 @@
 <script setup>
-import { reactive } from "vue";
-import { router } from '@inertiajs/vue3'
+import { useForm } from '@inertiajs/vue3'
 
-defineProps({
-    errors: Object
-})
-
-
-let form = reactive({
+let form = useForm({
     name: '',
     email: '',
     password: ''
 })
 
 let submit = () => {
-    router.post('/users', form)
+    form.post('/users')
 }
-
-
 </script>
 
 <template>
     <h1 class="title">Adicionar Usuário</h1>
-    <form @submit.prevent="submit" class="my-form max-w-xl x-auto">
+    <form @submit.prevent="submit" class="my-form max-w-xl x-auto" autocomplete="off">
         <div class="mb-2">
             <label for="name">Nome:</label>
             <input type="text" v-model="form.name" placeholder="Nome" required>
-            <span class="error">{{ errors.name }}</span>
+            <span class="error">{{ form.errors.name }}</span>
         </div>
         <div class="mb-2">
             <label for="email">Email:</label>
-            <input type="email" v-model="form.email" placeholder="name@flowbite.com" required>
-            <span class="error">{{ errors.email }}</span>
+            <input type="text" v-model="form.email" placeholder="name@flowbite.com">
+            <span class="error">{{ form.errors.email }}</span>
         </div>
         <div class="mb-2">
             <label for="password">Senha:</label>
             <input type="password" v-model="form.password" required>
-            <span class="error">{{ errors.password }}</span>
+            <span class="error">{{ form.errors.password }}</span>
         </div>
         <div class="text-center">
-            <button type="submit">Salvar</button>
+            <button type="submit" :disabled="form.processing">Salvar</button>
             <button type="button">Cancelar</button>
         </div>
     </form>

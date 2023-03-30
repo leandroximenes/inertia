@@ -20,13 +20,16 @@ watch(search, value => {
 </script>
 
 <template>
-  <div class="flex justify-between py-4">
+  <pre>
+  </pre>
+  <div class="py-4">
     <h1 class="title my-0">Usuários</h1>
   </div>
+
   <div class="flex justify-between py-4">
     <input type="text" v-model="search" placeholder="Search..." class="border rounded-md px-2">
     <Link href="/users/create" class="my-primary-button">
-      Adicionar
+    Adicionar
     </Link>
   </div>
 
@@ -54,16 +57,15 @@ watch(search, value => {
           <td class="px-6 py-4">
             {{ user.name }}
           </td>
-          <td class="px-6 py-4">
-            {{ user.email }}
-          </td>
-          <td class="px-6 py-4 text-right">
-            <a href="#" class="font-medium text-primary-600 dark:text-primary-500 hover:underline">Edit</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+        <td class="px-6 py-4">
+          {{ user.email }}
+        </td>
+        <td class="px-6 py-4 text-right">
+          <a href="#" class="font-medium text-primary-600 dark:text-primary-500 hover:underline">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-  <Pagination :users="users" />
-</template>
+<Pagination :users="users" /></template>
