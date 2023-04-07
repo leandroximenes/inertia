@@ -1,5 +1,16 @@
 module.exports = {
-    semi: true,
-    singleQuote: true,
-    trailingComma: 'es5',
+  semi: true,
+  trailingComma: 'all',
+  singleQuote: true,
+  printWidth: 80,
+  tabWidth: 2,
+  bracketSameLine: false,
+  overrides: [
+    {
+      files: '*.vue',
+      options: {
+        parser: 'vue',
+      },
+    },
+  ],
 };
