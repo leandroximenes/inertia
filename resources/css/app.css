@@ -4,52 +4,57 @@
 
 @layer components {
   .title {
-    @apply text-2xl font-bold my-3
+    @apply text-2xl font-bold my-3;
   }
 
   .menu-link {
-    @apply bg-gray-300 py-2 m-1 rounded hover:bg-gray-400 flex content-start
+    @apply bg-gray-300 py-2 m-1 rounded hover:bg-gray-400 flex
+    content-start;
   }
 
   .menu-link-active {
-    @apply bg-gray-500 text-gray-100 font-medium hover:bg-gray-600
+    @apply bg-gray-500 text-gray-100 font-medium hover:bg-gray-600;
   }
 
   .pagination-item {
-    @apply px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700
+    @apply px-3 py-2 leading-tight text-gray-500 bg-white
+    border border-gray-300 hover:bg-gray-100 hover:text-gray-700;
   }
 
-  .my-form{
-    @apply p-3 shadow-md sm:rounded-lg bg-white
+  .my-form {
+    @apply p-3 shadow-md sm:rounded-lg bg-white;
   }
 
-  .my-form label{
-    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white
+  .my-form label {
+    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
   }
 
-  .my-form input{
-    @apply shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+  .my-form input {
+    @apply shadow-sm bg-gray-50 border border-gray-300 text-gray-900
+    text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block
+    w-full p-2.5;
   }
 
-  .my-form button[type="submit"], 
-  .my-primary-button{
-    @apply bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 mx-1 rounded
+  .my-form button[type='submit'],
+  .my-primary-button {
+    @apply bg-primary-500 hover:bg-primary-700 text-white font-bold py-2
+    px-4 mx-1 rounded;
   }
 
-  .my-form button, 
-  .my-neutral-button{
-    @apply bg-neutral-500 hover:bg-neutral-700 text-white font-bold py-2 px-4 mx-1 rounded
+  .my-form button,
+  .my-neutral-button {
+    @apply bg-neutral-500 hover:bg-neutral-700 text-white font-bold py-2
+    px-4 mx-1 rounded;
   }
 
-  .my-form button[type="submit"]:disabled, 
+  .my-form button[type='submit']:disabled,
   .my-primary-button:disabled,
-  .my-form button:disabled, 
-  .my-neutral-button:disabled
-  {
+  .my-form button:disabled,
+  .my-neutral-button:disabled {
     @apply opacity-50 cursor-not-allowed;
   }
 
-  .my-form .error{
-    @apply text-sm text-red-500 ml-2
+  .my-form .error {
+    @apply text-sm text-red-500 ml-2;
   }
 }

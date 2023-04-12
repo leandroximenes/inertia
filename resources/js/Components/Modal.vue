@@ -1,41 +1,44 @@
 <script setup>
 import { ref, watch } from 'vue';
-
-const props = defineProps({
-  message: Object,
-});
+import { usePage } from '@inertiajs/vue3';
 
 const modal = ref({
   showModal: false,
-  color: 'blue',
+  color: '',
   title: '',
   message: '',
 });
 
-const getModalColorClass = () =>
-  `bg-${modal.value.color}-50 text-${modal.value.color}-800`;
+const updateModal = () => {
+  if (usePage().props.flash) {
+    modal.value.showModal = true;
+    modal.value.color = usePage().props.flash.color;
+    modal.value.title = usePage().props.flash.title;
+    modal.value.message = usePage().props.flash.message;
+  } else {
+    modal.value.showModal = false;
+    modal.value.color = '';
+    modal.value.title = '';
+    modal.value.message = '';
+  }
+};
 
 watch(
-  () => props.message,
-  (newValue) => {
-    if (newValue !== null) {
-      modal.value.showModal = true;
-      modal.value.color = newValue.color;
-      modal.value.title = newValue.title;
-      modal.value.message = newValue.message;
-
-      setTimeout(() => {
-        modal.value.showModal = false;
-      }, 2000);
-    }
+  () => usePage().props.flash,
+  () => {
+    updateModal();
   },
 );
+
+updateModal();
+const getModalColorClass = () =>
+  `bg-${modal.value.color}-200 text-${modal.value.color}-800`;
 </script>
 
 <template>
   <div class="fixed mt-3 w-full z-50 flex justify-center items-start">
     <div
-      class="p-4 mb-4 text-sm rounded-lg"
+      class="p-4 mb-4 text-md rounded-lg w-10/12 text-center"
       :class="[getModalColorClass()]"
       role="alert"
       v-if="modal.showModal"
@@ -45,3 +48,34 @@ watch(
     </div>
   </div>
 </template>
+
+<style>
+/* Define required colors */
+.bg-blue-200 {
+  background-color: #bfdbfe;
+}
+.text-blue-800 {
+  color: #1e3a8a;
+}
+
+.bg-green-200 {
+  background-color: #c6f6d5;
+}
+.text-green-800 {
+  color: #047857;
+}
+
+.bg-yellow-200 {
+  background-color: #fde68a;
+}
+.text-yellow-800 {
+  color: #b45309;
+}
+
+.bg-red-200 {
+  background-color: #fecaca;
+}
+.text-red-800 {
+  color: #991b1b;
+}
+</style>
