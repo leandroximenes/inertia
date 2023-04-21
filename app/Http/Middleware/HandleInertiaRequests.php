@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use Auth;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -38,10 +39,10 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'appName' => config('app.name'),
-            'user' => [
-                'name' => 'Leandro Ximenes',
-                'email' => 'leandroj.r.ximenes@gmail.com'
-            ],
+            'user' => Auth::user() ? [
+                'name' => Auth::user()->name,
+                'email' => Auth::user()->email,
+            ] : null,
             'flash' => fn () => $request->session()->get('message'),
         ]);
     }

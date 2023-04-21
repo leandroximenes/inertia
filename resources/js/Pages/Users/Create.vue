@@ -21,7 +21,13 @@ let submit = () => {
   >
     <div class="mb-2">
       <label for="name">Nome:</label>
-      <input type="text" v-model="form.name" placeholder="Nome" required />
+      <input
+        type="text"
+        v-model="form.name"
+        placeholder="Nome"
+        required
+        autofocus
+      />
       <span class="error">{{ form.errors.name }}</span>
     </div>
     <div class="mb-2">

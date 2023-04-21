@@ -10,6 +10,12 @@ const user = computed(() => usePage().props.user)
     <ComponentModal></ComponentModal>
     <header class="p-5 bg-gray-200">
       <span class="text-lg font-bold">{{ $page.props.appName }}</span>
+      <Link
+        href="/logout"
+        method="post"
+        class="float-right mx-2 font-bold hover:underline"
+        >Log Out</Link
+      >
       <span class="float-right">Hello, {{ user.name }}</span>
     </header>
     <div class="flex-1 flex flex-row">
