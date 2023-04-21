@@ -1,38 +1,38 @@
 <script setup>
-import { ref, watch } from 'vue';
-import { usePage } from '@inertiajs/vue3';
+import { ref, watch } from 'vue'
+import { usePage } from '@inertiajs/vue3'
 
 const modal = ref({
   showModal: false,
   color: '',
   title: '',
   message: '',
-});
+})
 
 const updateModal = () => {
   if (usePage().props.flash) {
-    modal.value.showModal = true;
-    modal.value.color = usePage().props.flash.color;
-    modal.value.title = usePage().props.flash.title;
-    modal.value.message = usePage().props.flash.message;
+    modal.value.showModal = true
+    modal.value.color = usePage().props.flash.color
+    modal.value.title = usePage().props.flash.title
+    modal.value.message = usePage().props.flash.message
   } else {
-    modal.value.showModal = false;
-    modal.value.color = '';
-    modal.value.title = '';
-    modal.value.message = '';
+    modal.value.showModal = false
+    modal.value.color = ''
+    modal.value.title = ''
+    modal.value.message = ''
   }
-};
+}
 
 watch(
   () => usePage().props.flash,
   () => {
-    updateModal();
+    updateModal()
   },
-);
+)
 
-updateModal();
+updateModal()
 const getModalColorClass = () =>
-  `bg-${modal.value.color}-200 text-${modal.value.color}-800`;
+  `bg-${modal.value.color}-200 text-${modal.value.color}-800`
 </script>
 
 <template>

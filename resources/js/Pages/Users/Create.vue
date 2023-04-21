@@ -1,15 +1,15 @@
 <script setup>
-import { useForm } from '@inertiajs/vue3';
+import { useForm } from '@inertiajs/vue3'
 
 let form = useForm({
   name: '',
   email: '',
   password: '',
-});
+})
 
 let submit = () => {
-  form.post('/users');
-};
+  form.post('/users')
+}
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 <script setup>
-import ComponentModal from '../Components/Modal.vue';
-import { usePage } from '@inertiajs/vue3';
-import { computed } from 'vue';
-const user = computed(() => usePage().props.user);
+import ComponentModal from '../Components/Modal.vue'
+import { usePage } from '@inertiajs/vue3'
+import { computed } from 'vue'
+const user = computed(() => usePage().props.user)
 </script>
 
 <template>

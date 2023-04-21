@@ -1,14 +1,14 @@
 <script setup>
-import { ref, watch } from 'vue';
-import Pagination from '../../Components/Pagination.vue';
-import { router } from '@inertiajs/vue3';
+import { ref, watch } from 'vue'
+import Pagination from '../../Components/Pagination.vue'
+import { router } from '@inertiajs/vue3'
 
 const props = defineProps({
   users: Object,
   filters: Object,
-});
+})
 
-let search = ref(props.filters.search);
+let search = ref(props.filters.search)
 
 watch(search, (value) => {
   router.get(
@@ -19,8 +19,8 @@ watch(search, (value) => {
       preserveScroll: true,
       replace: true,
     },
-  );
-});
+  )
+})
 </script>
 
 <template>
