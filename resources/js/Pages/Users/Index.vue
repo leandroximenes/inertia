@@ -2,6 +2,7 @@
 import { ref, watch } from 'vue'
 import Pagination from '../../Components/Pagination.vue'
 import { router } from '@inertiajs/vue3'
+import debounce from 'lodash/debounce'
 
 const props = defineProps({
   users: Object,
@@ -10,17 +11,21 @@ const props = defineProps({
 
 let search = ref(props.filters.search)
 
-watch(search, (value) => {
-  router.get(
-    '/users',
-    { search: value },
-    {
-      preserveState: true,
-      preserveScroll: true,
-      replace: true,
-    },
-  )
-})
+watch(
+  search,
+  debounce(function (value) {
+    console.log(value)
+    router.get(
+      '/users',
+      { search: value },
+      {
+        preserveState: true,
+        preserveScroll: true,
+        replace: true,
+      },
+    )
+  }, 200),
+)
 </script>
 
 <template>
