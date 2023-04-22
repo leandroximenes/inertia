@@ -45,10 +45,8 @@ watch(
   </div>
 
   <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-      <thead
-        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
-      >
+    <table class="w-full text-sm text-left text-gray-500">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
         <tr>
           <th scope="col" class="px-6 py-3">
             <div class="flex items-center">Name</div>
@@ -63,7 +61,7 @@ watch(
       </thead>
       <tbody>
         <tr
-          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+          class="bg-white border-b"
           v-for="(user, key) in users.data"
           :id="key"
         >
@@ -74,11 +72,11 @@ watch(
             {{ user.email }}
           </td>
           <td class="px-6 py-4 text-right">
-            <a
-              href="#"
-              class="font-medium text-primary-600 dark:text-primary-500 hover:underline"
-              >Edit</a
-            >
+            <Link
+              :href="`/users/${user.id}/edit`"
+              class="font-medium text-primary-600 hover:underline"
+              >Edit
+            </Link>
           </td>
         </tr>
       </tbody>

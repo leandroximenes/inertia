@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Models\User;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,47 +26,13 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('Home');
     });
 
-    Route::get('/users', function () {
-        return Inertia::render(
-            'Users/Index',
-            [
-                'users' => User::query()
-                    ->when(Request::input('search'), function ($query, $search) {
-                        $query->where('name', 'like', "%{$search}%");
-                    })
-                    ->paginate(10)
-                    ->withQueryString()
-                    ->through(fn ($user) => [
-                        'id' => $user->id,
-                        'name' => $user->name
-                    ]),
-
-                'filters' => Request::only(['search'])
-            ]
-        );
-    });
-
-    Route::post('/users', function () {
-        $attributes = Request::validate([
-            'name' => 'required',
-            'email' => ['required', 'email'],
-            'password' => 'required'
-        ]);
-
-        User::create($attributes);
-
-        return redirect('/users')->with('message', [
-            'color' => 'green',
-            'title' => 'Successo!',
-            'message' => 'Usuário criado com sucesso',
-        ]);
-    });
-
-    Route::get('/users/create', function () {
-        return Inertia::render('Users/Create');
-    });
-
     Route::get('/settings', function () {
         return Inertia::render('Settings');
     });
+
+    Route::get('/users', [UsersController::class, 'index']);
+    Route::get('/users/create', [UsersController::class, 'create']);
+    Route::post('/users', [UsersController::class, 'store']);
+    Route::get('/users/{user}/edit', [UsersController::class, 'edit']);
+    Route::put('/users/{user}', [UsersController::class, 'update']);
 });
