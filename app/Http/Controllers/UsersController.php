@@ -17,6 +17,7 @@ class UsersController extends Controller
                     ->when($request->input('search'), function ($query, $search) {
                         $query->where('name', 'like', "%{$search}%");
                     })
+                    ->orderBy('name') // add this line to order by name
                     ->paginate(10)
                     ->withQueryString()
                     ->through(fn ($user) => [
