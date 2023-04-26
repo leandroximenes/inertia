@@ -8,8 +8,8 @@
   }
 
   .menu-link {
-    @apply bg-gray-300 py-2 m-1 rounded hover:bg-gray-400 flex
-    content-start;
+    @apply bg-gray-300 p-2 m-1 rounded hover:bg-gray-400 flex items-center
+    space-x-2 content-start;
   }
 
   .menu-link-active {
