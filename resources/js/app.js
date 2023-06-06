@@ -22,3 +22,8 @@ createInertiaApp({
       .mount(el)
   },
 })
+
+//refresh
+// window.onpopstate = function () {
+//   location.reload()
+// }

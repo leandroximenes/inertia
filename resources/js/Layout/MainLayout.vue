@@ -8,7 +8,6 @@ const user = computed(() => usePage().props.user)
 
 <template>
   <main class="min-h-screen flex flex-col h-screen">
-    <ComponentModal></ComponentModal>
     <header class="p-5 bg-gray-200">
       <span class="text-lg font-bold">{{ $page.props.appName }}</span>
       <Link
@@ -61,6 +60,7 @@ const user = computed(() => usePage().props.user)
         </ul>
       </nav>
       <main class="flex-1 overflow-y-auto p-2 bg-gray-100">
+        <ComponentModal class="w-full"></ComponentModal>
         <slot></slot>
       </main>
     </div>

@@ -36,9 +36,9 @@ const getModalColorClass = () =>
 </script>
 
 <template>
-  <div class="fixed mt-3 w-full z-50 flex justify-center items-start">
+  <div class="mt-3">
     <div
-      class="p-4 mb-4 text-md rounded-lg w-10/12 text-center"
+      class="p-4 mb-4 text-md rounded-lg text-center"
       :class="[getModalColorClass()]"
       role="alert"
       v-if="modal.showModal"
