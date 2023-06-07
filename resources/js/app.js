@@ -1,6 +1,7 @@
 import { createApp, h } from 'vue'
 import { createInertiaApp, Link } from '@inertiajs/vue3'
 import Layout from './Layout/MainLayout.vue'
+import { goBack } from './Helpers/util.js'
 
 createInertiaApp({
   progress: {
@@ -16,10 +17,11 @@ createInertiaApp({
     return page
   },
   setup({ el, App, props, plugin }) {
-    createApp({ render: () => h(App, props) })
-      .use(plugin)
-      .component('Link', Link)
-      .mount(el)
+    const app = createApp({ render: () => h(App, props) })
+    app.use(plugin)
+    app.component('Link', Link)
+    app.config.globalProperties.$goBack = goBack // Make goBack globally available
+    app.mount(el)
   },
 })
 

@@ -42,7 +42,7 @@ let submit = () => {
     </div>
     <div class="text-center">
       <button type="submit" :disabled="form.processing">Salvar</button>
-      <button type="button">Cancelar</button>
+      <button type="button" @click="$goBack">Cancelar</button>
     </div>
   </form>
 </template>
