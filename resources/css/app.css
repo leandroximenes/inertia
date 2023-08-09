@@ -8,7 +8,7 @@
   }
 
   .menu {
-    @apply order-first w-full overflow-y-auto bg-gray-300 sm:w-40;
+    @apply order-first w-full overflow-y-auto bg-gray-300 absolute sm:w-40 sm:static sm:order-none sm:overflow-y-visible;
   }
 
   .menu-link {
