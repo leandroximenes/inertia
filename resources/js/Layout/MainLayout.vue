@@ -87,13 +87,13 @@ const toggleMenu = () => {
           </li>
         </ul>
       </nav>
-      <main class="flex-1 overflow-y-auto p-2 bg-gray-100">
-        <ComponentModal class="w-full"></ComponentModal>
+      <main class="p-2 flex-1 bg-gray-100">
+        <FlashMessage></FlashMessage>
         <slot></slot>
       </main>
     </div>
-    <footer class="text-center bg-gray-800 text-white">
+    <!-- <footer class="text-center bg-gray-800 text-white">
       © All rights reserved
-    </footer>
+    </footer> -->
   </main>
 </template>
