@@ -7,6 +7,10 @@
     @apply text-2xl font-bold my-3;
   }
 
+  .menu {
+    @apply order-first w-full overflow-y-auto bg-gray-300 sm:w-40;
+  }
+
   .menu-link {
     @apply bg-gray-300 p-2 m-1 rounded hover:bg-gray-400 flex items-center
     space-x-2 content-start;
