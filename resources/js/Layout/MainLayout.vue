@@ -23,7 +23,7 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <main class="min-h-screen flex flex-col h-screen">
+  <main class="flex flex-col h-screen">
     <header class="p-5 bg-gray-200 flex justify-between">
       <span class="text-lg font-bold flex">
         <Bars3Icon
