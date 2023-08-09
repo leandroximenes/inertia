@@ -2,8 +2,8 @@
 import { useForm } from '@inertiajs/vue3'
 
 let form = useForm({
-  email: '',
-  password: '',
+  email: 'leandro@example.com',
+  password: '123456',
 })
 
 let submit = () => {
@@ -28,7 +28,7 @@ let submit = () => {
           <div class="mb-2">
             <label for="email">Email:</label>
             <input
-              type="text"
+              type="email"
               v-model="form.email"
               placeholder="name@flowbite.com"
             />
