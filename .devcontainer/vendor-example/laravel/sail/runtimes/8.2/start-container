@@ -15,8 +15,9 @@ if [ $# -gt 0 ]; then
 else
     # Add custom Git branch name and status to ~/.bashrc
     echo 'parse_git_branch() {
-        branch=$(git symbolic-ref HEAD 2> /dev/null | cut -d "/" -f 3)
+        branch=$(git symbolic-ref HEAD 2> /dev/null)
         if [[ -n $branch ]]; then
+            branch=${branch#refs/heads/}
             status=$(git status --porcelain 2> /dev/null)
             if [[ -n $status ]]; then
                 echo "($branch*)"
